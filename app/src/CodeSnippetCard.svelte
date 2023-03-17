@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { CodeBlock } from '@skeletonlabs/skeleton';
+	import { deleteSnippet, toggleFavourite } from './SnippetStore';
+
 	export let snippet: CodeSnippet = {
 		title: '',
 		language: '',
@@ -13,10 +15,17 @@
 	<header class="card-header">
 		{snippet.title}
 		<div class="float-right">
-			<button type="button" class="btn btn-sm variant-filled-secondary"
+			<button
+				type="button"
+				class="btn btn-sm variant-filled-secondary"
+				on:click={() => toggleFavourite(index)}
 				>{snippet.favourite ? 'Unfavorite' : 'Favorite'}</button
 			>
-			<button type="button" class="btn btn-sm variant-filled-error">X</button>
+			<button
+				type="button"
+				class="btn btn-sm variant-filled-error"
+				on:click={() => deleteSnippet(index)}>X</button
+			>
 		</div>
 	</header>
 	<section class="p-4">
