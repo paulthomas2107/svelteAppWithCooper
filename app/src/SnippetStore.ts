@@ -25,7 +25,7 @@ export function toggleFavourite(index: number) {
 
 	snippetStore.update(() => {
 		return snippets.map((snippet, snippetIndex) => {
-			if (snippetIndex == index) {
+			if (snippetIndex === index) {
 				return { ...snippet, favourite: !snippet.favourite };
 			}
 			return snippet;

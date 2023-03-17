@@ -1,16 +1,25 @@
 <script lang="ts">
 	import { CodeBlock } from '@skeletonlabs/skeleton';
+	export let snippet: CodeSnippet = {
+		title: '',
+		language: '',
+		code: '',
+		favourite: false
+	};
+	export let index: number;
 </script>
 
 <div class="header">
 	<header class="card-header">
-		Title of Snippet
+		{snippet.title}
 		<div class="float-right">
-			<button type="button" class="btn btn-sm variant-filled-secondary">Favourite</button>
+			<button type="button" class="btn btn-sm variant-filled-secondary"
+				>{snippet.favourite ? 'Unfavorite' : 'Favorite'}</button
+			>
 			<button type="button" class="btn btn-sm variant-filled-error">X</button>
 		</div>
 	</header>
 	<section class="p-4">
-		<CodeBlock language={'HTML'} code={`<h1>Hello its CooperCodes</h1>`} />
+		<CodeBlock language={snippet.language} code={snippet.code} />
 	</section>
 </div>
