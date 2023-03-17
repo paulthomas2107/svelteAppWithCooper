@@ -1,6 +1,9 @@
 <script lang="ts">
 	import CodeSnippetCard from '../CodeSnippetCard.svelte';
-	import { snippetStore } from '../SnippetStore';
+	import { snippetStore, addSnippet } from '../SnippetStore';
+	import type { PageData} from "./$types"
+	export let data: PageData;
+	
 
 	let formData: CodeSnippetInput = {
 		title: '',
@@ -9,20 +12,7 @@
 	};
 
 	// createSnippet(input : CodeSnippetInput)
-	snippetStore.set([
-		{
-			title: 'Cooper Codes Snippet',
-			language: 'html',
-			code: `<div>This is a div</div>`,
-			favourite: false
-		},
-		{
-			title: 'Cooper Codes Thomas',
-			language: 'css',
-			code: `<div>This is css</div>`,
-			favourite: false
-		}
-	]);
+	snippetStore.set(data.snippets);
 	// Snippet Store - local writable stores snippets
 	// Create / delete snippets
 	// Favourite Snippets
@@ -59,6 +49,7 @@
 					bind:value={formData.code}
 				/>
 			</label>
+			<button type="button" class="btn btn-sm variant-filled-primary" on:click={() => addSnippet(formData)}>Create Snippet</button>
 		</div>
 		<div class="text-center py-6">
 			<h2>My Code Snippets</h2>
