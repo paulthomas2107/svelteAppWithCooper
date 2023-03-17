@@ -1,3 +1,7 @@
+<script lang="ts">
+	import CodeSnippetCard from '../CodeSnippetCard.svelte';
+</script>
+
 <div class="flex justify-center">
 	<div class="grid grid-cols-1 gap-4 min-w-full md:min-w-[750px]">
 		<h3 class="text-center py-6">Create A Code Snippet</h3>
@@ -19,5 +23,9 @@
 				<textarea class="textarea" rows="4" placeholder="Enter your snippet code here..." />
 			</label>
 		</div>
+		<div class="text-center py-6">
+			<h2>My Code Snippets</h2>
+		</div>
+		<CodeSnippetCard />
 	</div>
 </div>
